@@ -16,9 +16,7 @@ class App extends Component {
 
   componentDidMount() {
     const dataStorage = apiStorage.getlocalStorage('contacts');
-
     if (!dataStorage) return;
-
     this.setState({ contacts: [...dataStorage] });
   }
 
