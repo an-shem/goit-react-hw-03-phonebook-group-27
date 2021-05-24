@@ -58,13 +58,18 @@ class App extends Component {
 
   render() {
     const { filter, contacts } = this.state;
+    const haveContacts = contacts.length > 0;
     return (
       <Container>
         <Section title="Phonebook">
           <ContactForm onSubmit={this.handleFormSubmit} />
         </Section>
         <Section title="Contacts">
-          <Filter filter={filter} filterChange={this.handleChange} />
+          {haveContacts ? (
+            <Filter filter={filter} filterChange={this.handleChange} />
+          ) : (
+            <h3>You have no contacts yet </h3>
+          )}
           <ContactList
             contacts={contacts}
             filter={filter}
